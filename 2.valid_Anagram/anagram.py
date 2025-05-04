@@ -16,7 +16,7 @@ def is_anagram_sort(s,t):
 # The sorted() function is a built-in Python function that returns a new sorted list from the elements of any iterable (like strings, lists, tuples).
 
 
-# Solution 2 : using hashmap
+# Solution 2 : using 1 hashmap
 
 def is_anagram(s,t):
     if len(s) != len(t):
@@ -31,5 +31,15 @@ def is_anagram(s,t):
             return False
     return False
 
+# Solution : 3 using 2 hashmaps
+def valid_anagram(s, t):
+    count_s = {}
+    count_t = {}
 
+    for ch in s:
+        count_s[ch] = count_s.get(ch, 0) + 1
+    for ch in t:
+        count_t[ch] = count_t.get(ch, 0) + 1
+
+    return count_s == count_t
 
